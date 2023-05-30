@@ -58,9 +58,8 @@ def get_text():
     return input_text
 
 
-if __name__ == "__main__":
 
-    #visits, journeys = get_data()
+if __name__ == "__main__":
 
     st.sidebar.title("Paste your OpenAI key and upload your Timeline data")
 
@@ -110,9 +109,7 @@ if __name__ == "__main__":
 
     if uploaded_file is not None:
 
-        options = st.multiselect(
-            'Which years would you like to see?', list(visits['visit start year'].unique())) 
-            #[2017, 2018, 2019, 2020, 2021, 2022, 2023]) 
+        options = st.multiselect('Which years would you like to see?', list(visits['visit start year'].unique())) 
         
         map_data = visits[visits['visit start year'].isin(options)] 
         map_data = map_data.rename(columns={'location latitude': 'LAT', 'location longitude': 'LON'})
