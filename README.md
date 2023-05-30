@@ -2,8 +2,10 @@
 
 Interact with your Google Timeline data!
 
-Chat with the Chatbot to query the data with natural language.
-Use the interactive map to visualise places visited by year. 
+- Chat with the Chatbot to query the data with natural language.
+- Use the interactive map to visualise places visited by year. 
+
+Powered by OpenAI, LangChain and Streamlit. 
 
 
 Screenshot from the app:
