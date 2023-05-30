@@ -62,6 +62,8 @@ if __name__ == "__main__":
 
     #visits, journeys = get_data()
 
+    st.sidebar.title("Paste your OpenAI key and upload your Timeline data")
+
     # Chat bot 
     user_api_key = st.sidebar.text_input(
         label="#### OpenAI API key 👇",
@@ -70,10 +72,10 @@ if __name__ == "__main__":
     os.environ["OPENAI_API_KEY"] = user_api_key
 
     # Upload zip file
-    uploaded_file = st.sidebar.file_uploader("Upload the ZIP file", type="zip")
+    uploaded_file = st.sidebar.file_uploader("Upload the ZIP file 👇", type="zip")
     if uploaded_file is not None:
         #visits, journeys = get_data_from_zip(uploaded_file)
-        st.sidebar.title("Zip file uploaded")
+        st.sidebar.text("Zip file uploaded")
         visits, journeys = get_data_from_zip(uploaded_file)
 
     # Chatbot 
@@ -109,8 +111,8 @@ if __name__ == "__main__":
     if uploaded_file is not None:
 
         options = st.multiselect(
-            'Which years would you like to see?',
-            [2017, 2018, 2019, 2020, 2021, 2022, 2023]) 
+            'Which years would you like to see?', list(visits['visit start year'].unique())) 
+            #[2017, 2018, 2019, 2020, 2021, 2022, 2023]) 
         
         map_data = visits[visits['visit start year'].isin(options)] 
         map_data = map_data.rename(columns={'location latitude': 'LAT', 'location longitude': 'LON'})
